@@ -1,0 +1,146 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 48px 32px;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+}
+
+.skeleton div {
+  aspect-ratio: 4 / 3;
+  background: #edf0f3;
+  border-radius: 14px;
+  animation: pulse 1.3s infinite alternate;
+}
+
+.skeleton span {
+  height: 20px;
+  background: #edf0f3;
+  border-radius: 4px;
+}
+
+.skeleton span:last-child {
+  height: 44px;
+  margin-top: 16px;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0.4;
+  }
+}
+
+.loading {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: rgb(245 245 245 / 89%);
+}
+
+.loadingPanel {
+  position: sticky;
+  top: 50vh;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 48px 40px;
+  width: min(543px, 100%);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+
+.loadingPanel h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 32px 0 16px;
+}
+
+.loadingPanel p {
+  max-width: 280px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.spinner {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border: 6px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 96px 0 120px;
+}
+
+.illustration {
+  position: relative;
+  width: min(480px, 100%);
+  aspect-ratio: 480 / 360;
+  margin-bottom: 40px;
+}
+
+.illustration img {
+  object-fit: contain;
+}
+
+.empty h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.empty p {
+  max-width: 420px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.empty button {
+  min-width: 156px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .empty {
+    padding-block: 48px;
+  }
+}

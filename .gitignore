@@ -141,3 +141,11 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Browser verification output
+playwright-report/
+test-results/
+
+# Deployment tooling
+.vercel/
+.netlify/
